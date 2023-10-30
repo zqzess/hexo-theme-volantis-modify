@@ -1,4 +1,4 @@
-<% if (is_post()) { %>
+<% if (is_post()) {%>
   <script>
     let tianliGPT_wordLimit = <%= theme.plugins.tianliGPT.wordLimit %>;
     let tianliGPT_postSelector = '#post #post-body';
@@ -8,6 +8,11 @@
     function insertAIDiv(selector) {
       // 首先移除现有的 "post-TianliGPT" 类元素（如果有的话）
       removeExistingAIDiv();
+
+	const isShow = document.querySelector('#isShowAiPlugin')
+	if (!isShow) {
+		return
+	}
 
       // 获取目标元素
       const targetElement = document.querySelector(selector);
